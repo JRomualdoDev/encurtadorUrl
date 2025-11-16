@@ -18,7 +18,6 @@ public class Url {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String urlOriginal;
-    private String  urlShortened;
     private LocalDate expirationDate;
     private LocalDate createdAt;
 }
