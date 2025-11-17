@@ -102,7 +102,3 @@ A aplicação estará disponível em `http://localhost:8080`.
 *   `GET /url/{shortenerUrl}`
     *   **Descrição:** Redireciona para a URL original.
     *   **Exemplo:** `http://localhost:8080/url/BvL`
-
-## Observação Importante
-
-Existe um bug conhecido no arquivo `AppConfig.java`. A anotação `@Value("hashids.secret")` está incorreta e deveria ser `@Value("${hashids.secret}")`. Sem essa correção, o "sal" para o algoritmo Hashids será a string literal "hashids.secret" em vez do valor configurado no `application.properties`.
