@@ -34,12 +34,15 @@ public class UrlService {
             Optional<Url> newUrl = urlRepository.findByurlOriginal(urlFull);
 
             if (newUrl.isPresent()) {
-               return urlLocalhost + hashIds.encode(newUrl.get().getId());
+               return urlLocalhost + newUrl.get().getUrlShort();
             }
 
+            Long nextId = urlRepository.getNextUrlShortenerId();
+            String encodeUrl = hashIds.encode(nextId);
+            url.setUrlShort(encodeUrl);
             Url savedUrl = urlRepository.save(url);
 
-            return urlLocalhost + hashIds.encode(savedUrl.getId());
+            return urlLocalhost + encodeUrl;
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -54,9 +57,8 @@ public class UrlService {
         String strClear = shortenerUrl.replace("http://localhost:8080/", "");
 
         try {
-            long[] decode = hashIds.decode(strClear);
 
-            Url url = urlRepository.findById(decode[0]).orElseThrow();
+            Url url = urlRepository.findByurlShort(strClear).orElseThrow();
 
             //TODO: trocar o localdate por localdatetime por causa do minutos e seugundos
             if (url.getExpirationDate().isBefore(LocalDate.now())) {
