@@ -17,7 +17,12 @@ public class Url {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String urlOriginal;
+    @Column(nullable = false, unique = true, length = 10)
+    private String urlShort;
+    @Column(nullable = false)
     private LocalDate expirationDate;
+    @Column(nullable = false)
     private LocalDate createdAt;
 }
