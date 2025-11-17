@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
-    @Value("hashids.secret")
+    @Value("${hashids.secret}")
     private String secret;
 
     private final int SIZE_MIN = 5;
