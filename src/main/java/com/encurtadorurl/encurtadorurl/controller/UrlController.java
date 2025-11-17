@@ -22,7 +22,7 @@ public class UrlController {
 
         String shortenerUrl = urlService.shortenerUrl(url.url());
 
-        return new ResponseEntity<>(shortenerUrl, HttpStatus.OK);
+        return new ResponseEntity<>(shortenerUrl, HttpStatus.CREATED);
     }
 
     @GetMapping("{shortenerUrl}")
