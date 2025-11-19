@@ -48,7 +48,7 @@ public class UrlService {
             System.out.println(ex.getMessage());
         }
 
-        return "Error to convert url";
+        return "Error to shortener url";
     }
 
     public String getUrl(String shortenerUrl) {
