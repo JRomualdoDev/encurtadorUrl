@@ -60,7 +60,7 @@ public class UrlService {
 
             Url url = urlRepository.findByurlShort(strClear).orElseThrow();
 
-            //TODO: trocar o localdate por localdatetime por causa do minutos e seugundos
+            //TODO: trocar o localdate por localdatetime por causa do minutos e segundos
             if (url.getExpirationDate().isBefore(LocalDate.now())) {
                 return "Url expired.";
             }
