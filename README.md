@@ -2,7 +2,7 @@
 
 Este é um projeto de um encurtador de URL desenvolvido em Java com Spring Boot. Ele permite que você transforme URLs longas em URLs curtas e fáceis de compartilhar.
 
-## Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 *   **Java 17**
 *   **Spring Boot**
